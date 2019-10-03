@@ -15,7 +15,7 @@ To run this code, you need to install a package, [gco_python](https://github.com
 
 ---
 
-### 2. Initial depth from focus measure [4,5,6]
+### 2. Initial depth from focus measure [4, 5, 6, 7]
 A Focus Measure operator calculates the best focused point in the image, i.e. a Focus Measure is defined as a quantity for locally evaluating the sharpness of a pixel. When Images are captured with a small depth of field, objects that are away from the camera are out of focus and are perceived as blurry. Thus if we can measure the amount of blur, focus and depth can be measured as well.
 
 1) Convert RGB images A to grayscale image A’
@@ -27,7 +27,7 @@ A Focus Measure operator calculates the best focused point in the image, i.e. a 
 
 ---
 
-### 3. All-in-focus image [7, 8]
+### 3. All-in-focus image [8, 9]
 In all-in-focus imaging, a series of photographs taken of the same objects, on different focal planes, are analyzed to create an entirely in-focus final image. 
 
 1) From focus map, we can easily obtain the highest focus value by comparing one another.
@@ -35,7 +35,7 @@ In all-in-focus imaging, a series of photographs taken of the same objects, on d
 
 ---
 
-### 4. Graph-cuts and weighted median filter [9, 10, 11, 12]
+### 4. Graph-cuts and weighted median filter [10, 11, 12, 13]
 Suppose that each node as pixel and weight of edge as similarity between pixels. Finding the minimum cost to cut is same as finding the most efficient segmentation method.
 
 1) Segment the depth map by using multi-label optimization algorithm, **graph cut**.
@@ -48,12 +48,13 @@ Suppose that each node as pixel and weight of edge as similarity between pixels.
 |[1] | https://sites.google.com/site/imagealignment/ |
 |[2] | https://www.cs.toronto.edu/~urtasun/courses/CV/lecture06.pdf |
 |[3] | https://www.learnopencv.com/image-alignment-feature-based-using-opencv-c-python/ |
-|[4] | https://www.semanticscholar.org/paper/2-Blur-estimation-using-the-Elder-and-Zucker-method-Zaman/dbf5e58c54fe68591bf749d22b5ac002ca8cfe38 |
-|[5] | https://ieeexplore.ieee.org/document/689301 |
-|[6] | https://www.sciencedirect.com/science/article/pii/S0031320308000058 |
-|[7] | https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=560554 |
-|[8] | https://link.springer.com/chapter/10.1007/11559573_22 |
-|[9] | https://vision.cs.uwaterloo.ca/code/ |
-|[10] | https://peekaboo-vision.blogspot.com/2012/05/graphcuts-for-python-pygco.html |
-|[11] | https://github.com/amueller/gco_python |
-|[12] | https://github.com/cgearhart/DepthFromDefocus |
+|[4] | https://www.cv-foundation.org/openaccess/content_cvpr_2015/papers/Suwajanakorn_Depth_From_Focus_2015_CVPR_paper.pdf |
+|[5] | https://www.semanticscholar.org/paper/2-Blur-estimation-using-the-Elder-and-Zucker-method-Zaman/dbf5e58c54fe68591bf749d22b5ac002ca8cfe38 |
+|[6] | https://ieeexplore.ieee.org/document/689301 |
+|[7] | https://www.sciencedirect.com/science/article/pii/S0031320308000058 |
+|[8] | https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=560554 |
+|[9] | https://link.springer.com/chapter/10.1007/11559573_22 |
+|[10] | https://vision.cs.uwaterloo.ca/code/ |
+|[11] | https://peekaboo-vision.blogspot.com/2012/05/graphcuts-for-python-pygco.html |
+|[12] | https://github.com/amueller/gco_python |
+|[13] | https://github.com/cgearhart/DepthFromDefocus |
