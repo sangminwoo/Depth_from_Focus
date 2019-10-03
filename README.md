@@ -1,4 +1,4 @@
-# Depth_from_Focus
+# Depth from Focus
 This project implements a form of passive **depth from focus** to create a novel image approximating the depth map of a scene from multiple exposures of the same scene with slight variations in focal point by interpolating the depth of each pixel using graph cut optimization. Depth maps have a variety of practical uses in computer vision and robotics, so the allure of recovering depth without stereo vision systems is appealing. The initial premise was based on previous results implementing focus stacking, then the scope was expanded to incorporate techniques described by other researchers.
 
 ## Requirements
