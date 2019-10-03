@@ -30,7 +30,7 @@ def all_in_focus(img_list, unary_scale=2**22, pair_scale=2**12):
 
 def main():
     base_path = "../dataset/save/mobo2/test/"
-    img_path = "../dataset/05/" #base_path + "align/"
+    img_path = "../dataset/mobo2/" #base_path + "align/"
     #gl_save_path = base_path + "focus_stack/focus_"
     focus_save_path = base_path + "all_in_focus/output.jpg"
     graph_save_path = base_path + "graph_cut/output.jpg"
@@ -44,12 +44,12 @@ def main():
     
     print("Extracting focus from each images ...")
     graph_img, all_in_focus_img = all_in_focus(img_list, unary_scale=2**22, pair_scale=2**12)
-        
+    
+    print("Saving graph-cut image : ", graph_save_path);
+    save_image(graph_save_path, graph_img)
+    
     print("Saving all-in-focus image : ", focus_save_path);
     save_image(focus_save_path, all_in_focus_img)
-
-    print("Saving graph-cut image : ", graph_save_path);
-    save_image(focus_save_path, graph_img)
     
     #print("Saving depth-from-focus image : ", depth_save_path);
     #depth_map = depth_from_focus(argmax, blur_size=5)

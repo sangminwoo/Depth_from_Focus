@@ -28,8 +28,7 @@ def find_all_paths(path):
     
     for root, dirs, files in os.walk(path):
         for file in files:
-            all_paths.append(root)
-            all_paths[-1] += file
+            all_paths.append(root + file)
     
     return all_paths
 
@@ -41,3 +40,8 @@ def read_images_from_path(img_paths):
         img_list.append(img)
 
     return img_list
+
+def normalize(x):
+    max_, min_ = np.max(x), np.min(x)
+    normalized = (x - min_) /(max_ - min_)
+    return normalized
