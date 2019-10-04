@@ -43,6 +43,29 @@ Suppose that each node as pixel and weight of edge as similarity between pixels.
 
 ---
 
+## Results
+### Image Alignment, Feature Matches, Focus Stack
+Please refer to the attached file.
+
+---
+
+### Initial Depth map, All-in-Focus image
+The further the object is located, the darker its depth map becomes. By and large, below depth map shows pretty reasonable results. But in the first image set, even the right object is the closest object in the image, it is colored as black, because of low illumination condition.
+
+| ![1](dataset/save/05/depth_map/output81.jpg) | ![2](dataset/save/07/depth_map/output100.jpg) | ![3](dataset/save/mobo2/depth_map/output49.jpg) |
+|:---:|:---:|:---:|
+| ![1](dataset/save/05/all_in_focus/output81.jpg) | ![2](dataset/save/07/all_in_focus/output100.jpg) | ![3](dataset/save/mobo2/all_in_focus/output49.jpg) |
+| kernel_size=81 | kernel_size=100 | kernel_size=49 |
+
+---
+
+### Graph cut, Weighted median filter
+| ![1](dataset/save/05/graph_cut/output.jpg) | ![2](dataset/save/07/graph_cut/output.jpg) | ![3](dataset/save/mobo2/graph_cut/output.jpg) |
+|:---:|:---:|:---:|
+| ![1](dataset/save/05/wmf/output.jpg) | ![2](dataset/save/07/wmf/output.jpg) | ![3](dataset/save/mobo2/wmf/output.jpg) |
+
+---
+
 | No. | References |
 |:---:|:---:|
 |[1] | https://sites.google.com/site/imagealignment/ |
