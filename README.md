@@ -1,5 +1,5 @@
 # Depth from Focus
-This project implements a form of passive **depth from focus** to create a novel image approximating the depth map of a scene from multiple exposures of the same scene with slight variations in focal point by interpolating the depth of each pixel using graph cut optimization. Depth maps have a variety of practical uses in computer vision and robotics, so the allure of recovering depth without stereo vision systems is appealing. The initial premise was based on previous results implementing focus stacking, then the scope was expanded to incorporate techniques described by other researchers.
+**Depth from focus/defocus** is the problem of estimating the 3D surface of a scene from a set of two or more images of that scene. The images are obtained by changing the camera parameters (typically the focal setting or the image plane axial position), and taken from the same point of view.
 
 ## Requirements
 To run this code, you need to install a package, [gco_python](https://github.com/amueller/gco_python). It must be installed separately following the instructions on their respective project pages.
@@ -35,7 +35,7 @@ In all-in-focus imaging, a series of photographs taken of the same objects, on d
 
 ---
 
-### 4. Graph-cuts and weighted median filter [10, 11, 12, 13]
+### 4. Depth Refinement(Graph-cuts and weighted median filter) [10, 11, 12, 13]
 Suppose that each node as pixel and weight of edge as similarity between pixels. Finding the minimum cost to cut is same as finding the most efficient segmentation method.
 
 1) Segment the depth map by using multi-label optimization algorithm, **graph cut**.
@@ -52,17 +52,10 @@ Please refer to the attached file.
 ### Initial Depth map, All-in-Focus image
 The further the object is located, the darker its depth map becomes. By and large, below depth map shows pretty reasonable results. But in the first image set, even the right object is the closest object in the image, it is colored as black, because of low illumination condition.
 
-| ![1](dataset/save/05/depth_map/output81.jpg) | ![2](dataset/save/07/depth_map/output100.jpg) | ![3](dataset/save/mobo2/depth_map/output49.jpg) |
+| ![1](dataset/save/05/depth_map/output.jpg) | ![2](dataset/save/07/depth_map/output.jpg) | ![3](dataset/save/mobo2/depth_map/output.jpg) |
 |:---:|:---:|:---:|
-| ![1](dataset/save/05/all_in_focus/output81.jpg) | ![2](dataset/save/07/all_in_focus/output100.jpg) | ![3](dataset/save/mobo2/all_in_focus/output49.jpg) |
+| ![1](dataset/save/05/all_in_focus/output.jpg) | ![2](dataset/save/07/all_in_focus/output.jpg) | ![3](dataset/save/mobo2/all_in_focus/output.jpg) |
 | kernel_size=81 | kernel_size=100 | kernel_size=49 |
-
----
-
-### Graph cut, Weighted median filter
-| ![1](dataset/save/05/graph_cut/output.jpg) | ![2](dataset/save/07/graph_cut/output.jpg) | ![3](dataset/save/mobo2/graph_cut/output.jpg) |
-|:---:|:---:|:---:|
-| ![1](dataset/save/05/wmf/output.jpg) | ![2](dataset/save/07/wmf/output.jpg) | ![3](dataset/save/mobo2/wmf/output.jpg) |
 
 ---
 

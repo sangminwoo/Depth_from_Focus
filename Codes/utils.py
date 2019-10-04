@@ -3,6 +3,15 @@ import cv2
 import numpy as np
 
 # General
+WEIGHTS = np.array(
+        [[0, 0, 1, 2, 1, 0, 0],
+        [0, 1, 2, 3, 2, 1, 0],
+        [1, 2, 3, 4, 3, 2, 1],
+        [2, 3, 4, 5, 4, 3, 2],
+        [1, 2, 3, 4, 3, 2, 1],
+        [0, 1, 2, 3, 2, 1, 0],
+        [0, 0, 1, 2, 1, 0, 0]])
+
 def convert_to_grayscale(img):
     imGray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     return imGray
@@ -11,8 +20,11 @@ def read_image(image_path):
     img = cv2.imread(image_path, cv2.IMREAD_COLOR)
     return img
 
-def save_image(save_path, img):
-    cv2.imwrite(save_path, img)
+def save_image(save_path, save_as, img):
+    if not os.path.exists(save_path):
+        os.makedirs(save_path)
+        
+    cv2.imwrite(save_path+save_as, img)
     
 def find_all_files(path):
     all_files = []
@@ -23,21 +35,12 @@ def find_all_files(path):
     
     return all_files
 
-def find_all_paths(path):
-    all_paths = []
-    
-    for root, dirs, files in os.walk(path):
-        for file in files:
-            all_paths.append(root + file)
-    
-    return all_paths
-
-def read_images_from_path(img_paths):
+def read_images_from_path(img_path):
     img_list = []
     
-    for path in img_paths:
-        img = read_image(path)
-        img_list.append(img)
+    for root, dirs, files in os.walk(img_path):
+        for file in files:
+            img_list.append(read_image(root + file))
 
     return img_list
 
